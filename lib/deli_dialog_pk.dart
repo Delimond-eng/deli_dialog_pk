@@ -1,5 +1,7 @@
 library deli_dialog_pk;
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,8 +24,10 @@ class DeliDialog {
           backgroundColor: Colors.transparent,
           //this right here
           child: Container(
-            height: 200.0,
-            width: double.infinity,
+            height: (Platform.isAndroid || Platform.isIOS) ? 160.0 : 200.0,
+            width: (Platform.isAndroid || Platform.isIOS)
+                ? double.infinity
+                : 400.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               color: Colors.white,
@@ -142,7 +146,9 @@ class DeliDialog {
           //this right here
           child: Container(
             height: 160.0,
-            width: double.infinity,
+            width: (Platform.isAndroid || Platform.isIOS)
+                ? double.infinity
+                : 300.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
               color: Colors.white,
